@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Text("HIIiIiiiii"),
+        child: Text("HIIiIiii"),
       ),
     );
   }
