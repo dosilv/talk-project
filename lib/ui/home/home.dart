@@ -1,7 +1,5 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:humilylab_talk/ui/widget/round_button.dart';
-import 'package:humilylab_talk/ui/widget/small_button.dart';
 import 'package:humilylab_talk/ui/widget/thermometer.dart';
 
 class Home extends StatelessWidget {
@@ -11,7 +9,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(child: Thermometer(score: 36.5)),
+        child: Container(
+          child: Thermometer(
+            tempWidth: 20,
+            tempHeight: 100,
+            tempScore: 36.5,
+            hasShadow: true,
+          ),
+        ),
       ),
     );
   }
