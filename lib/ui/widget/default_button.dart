@@ -5,11 +5,11 @@ class DefalutButton extends StatelessWidget {
   const DefalutButton({
     required this.text,
     required this.disabled,
-    required this.onClick,
+    required this.onTap,
   });
 
   final bool disabled;
-  final VoidCallback onClick;
+  final VoidCallback onTap;
   final String text;
 
 // TODO  :  물결 애니메이션 제거하기
@@ -24,7 +24,7 @@ class DefalutButton extends StatelessWidget {
           color: disabled ? LIGHT_GRAY : PRIMARY,
         ),
         child: MaterialButton(
-          onPressed: disabled ? null : onClick,
+          onPressed: onTap,
           child: Center(
             child: Text(
               text,

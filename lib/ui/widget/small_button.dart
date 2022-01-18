@@ -19,7 +19,7 @@ class SmallButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: activated ? null : onTap,
+      onTap: onTap,
       child: Container(
         height: height,
         padding:

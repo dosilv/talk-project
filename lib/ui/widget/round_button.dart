@@ -18,7 +18,7 @@ class RoundButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: activated ? null : onTap,
+        onTap: onTap,
         child: Container(
           height: height,
           // TODO : 패딩이 필요할까..?
