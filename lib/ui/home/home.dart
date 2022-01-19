@@ -1,15 +1,14 @@
 // Flutter imports:
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
+import 'package:humilylab_talk/controller/widget/custom_date_picker_controller.dart';
+import 'package:humilylab_talk/ui/widget/action_modal.dart';
 import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
 import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
 import 'package:humilylab_talk/ui/widget/custom_timer.dart';
-import 'package:humilylab_talk/ui/widget/round_button.dart';
-=======
-import 'package:humilylab_talk/ui/widget/thermometer.dart';
->>>>>>> add77be368791cbf81616d0f34503b5201292ea9
 
 // class Home extends StatelessWidget {
 //   const Home({Key? key}) : super(key: key);
@@ -30,18 +29,37 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void showModal() {
-    Get.dialog(CustomDatePicker(), barrierDismissible: false);
+  void showDatePicker() async {
+    final date = await Get.put(CustomDatePickerController()).showDatePicker();
+    setState(() {
+      birthDate = '${date[0]} / ${date[1]} / ${date[2]}';
+    });
   }
+
+  void showActionSheet() {
+    Get.bottomSheet(ActionModal(actionLabels: [
+      '차단하기',
+      '신고하기'
+    ], actions: [
+      () {
+        print('차단하기');
+      },
+      () {
+        print('신고하기');
+      },
+    ]));
+  }
+
+  String birthDate = 'yyyy / mm / dd';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-<<<<<<< HEAD
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // CustomTimer(min: 10),
             CircularButton(
               activated: state1,
               defaultIcon: '🔇',
@@ -51,20 +69,17 @@ class _HomeState extends State<Home> {
               },
             ),
             CircularButton(
-              defaultIcon: '👍',
+              defaultIcon: '📆',
               defaultColor: Colors.white,
-              onTap: showModal,
-            )
+              onTap: showDatePicker,
+            ),
+            CircularButton(
+              defaultIcon: '✅',
+              defaultColor: Colors.white,
+              onTap: showActionSheet,
+            ),
+            Text(birthDate)
           ],
-=======
-        child: Container(
-          child: Thermometer(
-            tempWidth: 20,
-            tempHeight: 100,
-            tempScore: 36.5,
-            hasShadow: true,
-          ),
->>>>>>> add77be368791cbf81616d0f34503b5201292ea9
         ),
       ),
     );
