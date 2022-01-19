@@ -2,44 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:humilylab_talk/theme/color.dart';
 
 class RoundButton extends StatelessWidget {
-  const RoundButton({
-    required this.text,
-    required this.activated,
-    required this.onTap,
-    required this.height,
-  });
-
   final bool activated;
   final VoidCallback onTap;
   final String text;
-  final double height;
+  final double verticalPadding;
+
+  const RoundButton({
+    Key? key,
+    required this.activated,
+    required this.onTap,
+    required this.text,
+    this.verticalPadding = 10,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
+    return Material(
+      borderRadius: BorderRadius.circular(100),
+      color: activated ? PRIMARY : WHITE,
+      child: InkWell(
+        highlightColor: Colors.white24,
+        splashColor: Colors.transparent,
         onTap: onTap,
+        borderRadius: BorderRadius.circular(100),
         child: Container(
-          height: height,
-          // TODO : 패딩이 필요할까..?
-          padding: const EdgeInsets.all(11),
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(verticalPadding),
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
             border: Border.all(
               width: 1,
-              color: activated ? LIGHT_GRAY : PRIMARY,
+              color: activated ? PRIMARY : LIGHT_GRAY,
             ),
-            borderRadius: BorderRadius.circular(100),
-            color: activated ? null : PRIMARY,
           ),
-          child: Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: activated ? DEEP_GRAY : WHITE,
-              ),
-            ),
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                  color: activated ? WHITE : DEEP_GRAY,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
         ),
       ),

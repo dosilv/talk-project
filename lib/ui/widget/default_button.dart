@@ -17,32 +17,26 @@ class DefaultButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Material(
-            borderRadius: BorderRadius.circular(10),
-            color: activated ? LIGHT_GRAY : PRIMARY,
-            child: InkWell(
-              highlightColor: Colors.white24,
-              splashColor: Colors.transparent,
-              onTap: onTap,
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                padding: EdgeInsets.all(verticalPadding),
-                alignment: Alignment.center,
-                child: Text(
-                  text,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      ?.copyWith(color: activated ? DEEP_GRAY : WHITE),
-                ),
-              ),
-            ),
+    return Material(
+      borderRadius: BorderRadius.circular(10),
+      color: activated ? PRIMARY : LIGHT_GRAY,
+      child: InkWell(
+        highlightColor: Colors.white24,
+        splashColor: Colors.transparent,
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(verticalPadding),
+          child: Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2
+                ?.copyWith(color: activated ? WHITE : DEEP_GRAY),
           ),
         ),
-      ],
+      ),
     );
   }
 }

@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
-import 'package:humilylab_talk/ui/widget/default_button.dart';
-import 'package:humilylab_talk/ui/widget/small_button.dart';
+import 'package:humilylab_talk/ui/widget/widget_demo.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -29,19 +28,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            DefaultButton(
-                text: 'dkssud',
-                activated: true,
-                onTap: () {
-                  print('ddd');
-                }),
-          ],
-        ),
-      ),
+      body: WidgetDemo(),
     );
   }
 }
