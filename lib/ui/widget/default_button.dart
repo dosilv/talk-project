@@ -1,43 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:humilylab_talk/theme/color.dart';
 
-class DefalutButton extends StatelessWidget {
-  const DefalutButton({
-    required this.text,
-    required this.disabled,
-    required this.onTap,
-  });
-
-  final bool disabled;
+class DefaultButton extends StatelessWidget {
+  final bool activated;
   final VoidCallback onTap;
   final String text;
+  final double verticalPadding;
 
-// TODO  :  물결 애니메이션 제거하기
+  const DefaultButton({
+    Key? key,
+    required this.activated,
+    required this.onTap,
+    required this.text,
+    this.verticalPadding = 16,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 56,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: disabled ? LIGHT_GRAY : PRIMARY,
-        ),
-        child: MaterialButton(
-          onPressed: onTap,
-          child: Center(
-            child: Text(
-              text,
-              // TODO : theme을 사용하는 것이 더 좋은지??
-              //style: Theme.of(context).textTheme.headline3,
-              style: TextStyle(
-                fontSize: 16,
-                color: disabled ? DEEP_GRAY : WHITE,
+    return Row(
+      children: [
+        Expanded(
+          child: Material(
+            borderRadius: BorderRadius.circular(10),
+            color: activated ? LIGHT_GRAY : PRIMARY,
+            child: InkWell(
+              highlightColor: Colors.white24,
+              splashColor: Colors.transparent,
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                padding: EdgeInsets.all(verticalPadding),
+                alignment: Alignment.center,
+                child: Text(
+                  text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: activated ? DEEP_GRAY : WHITE),
+                ),
               ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
