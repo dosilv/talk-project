@@ -13,5 +13,6 @@ const ICON_GREEN = Color(0xffbaefe8);
 const ICON_BLUE = Color(0xffb8dcef);
 const ICON_ORANGE = Color(0xffffd2ac);
 const ICON_PURPLE = Color(0xffcbb8ef);
+const ICON_YELLOW = Color(0xffFFF5C1);
 const BLACK = Color(0xff111111);
 const WHITE = Color(0xffFFFFFF);
