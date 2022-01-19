@@ -37,18 +37,18 @@ class CenterModal extends StatelessWidget {
                 children: cancelText == null
                     ? [
                         DefalutButton(
-                            text: confirmText, disabled: false, onClick: () {})
+                            text: confirmText, disabled: false, onTap: () {})
                       ]
                     : [
                         DefalutButton(
                             text: cancelText!,
                             disabled: true,
-                            onClick: () {
+                            onTap: () {
                               Get.back();
                             }),
                         const SizedBox(width: 10),
                         DefalutButton(
-                            text: confirmText, disabled: false, onClick: () {}),
+                            text: confirmText, disabled: false, onTap: () {}),
                       ],
               )
             ],
