@@ -1,16 +1,12 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/controller/widget/custom_date_picker_controller.dart';
 import 'package:humilylab_talk/ui/widget/action_modal.dart';
-import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
-import 'package:humilylab_talk/ui/widget/custom_bottom_nav.dart';
-import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
+import 'package:humilylab_talk/ui/widget/custom_checkbox.dart';
 import 'package:humilylab_talk/ui/widget/custom_scaffold.dart';
-import 'package:humilylab_talk/ui/widget/custom_timer.dart';
 import 'package:humilylab_talk/ui/widget/default_button.dart';
 import 'package:humilylab_talk/ui/widget/round_button.dart';
 
@@ -37,6 +33,8 @@ class _HomeState extends State<Home> {
       birthDate = '${date[0]} / ${date[1]} / ${date[2]}';
     });
   }
+
+  bool checked = false;
 
   void showActionSheet() {
     Get.bottomSheet(ActionModal(actionLabels: [
@@ -83,7 +81,16 @@ class _HomeState extends State<Home> {
             ),
             Text(birthDate),
             DefaultButton(activated: true, onTap: () {}, text: 'text'),
-            RoundButton(activated: false, onTap: () {}, text: 'text')
+            RoundButton(activated: false, onTap: () {}, text: 'text'),
+            CustomCheckbox(
+              checked: checked,
+              text: '가나다라 마바사',
+              onTap: () {
+                setState(() {
+                  checked = !checked;
+                });
+              },
+            ),
           ],
         ),
       ),
