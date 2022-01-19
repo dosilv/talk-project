@@ -2,26 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:humilylab_talk/theme/color.dart';
 
 class Thermometer extends StatelessWidget {
+  final double thickness;
+  final double length;
+  final double score;
+  final bool hasShadow;
+  final bool isVertical;
+
   const Thermometer(
       {Key? key,
-      required this.tempWidth,
-      required this.tempHeight,
-      required this.tempScore,
-      required this.hasShadow})
+      required this.thickness,
+      required this.length,
+      required this.score,
+      this.hasShadow = false,
+      this.isVertical = true})
       : super(key: key);
-  final double tempWidth;
-  final double tempHeight;
-  final double tempScore;
-  final bool hasShadow;
 
   @override
   Widget build(BuildContext context) {
     return RotatedBox(
-      quarterTurns: 1,
+      quarterTurns: isVertical ? 1 : 0,
       child: Stack(children: [
         Container(
-          width: tempWidth,
-          height: tempHeight,
+          width: thickness,
+          height: length,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             color: LIGHT_GRAY,
@@ -30,8 +33,8 @@ class Thermometer extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Container(
-            width: tempWidth,
-            height: tempHeight * tempScore * 0.011,
+            width: thickness,
+            height: length * score * 0.011,
             decoration: BoxDecoration(
                 gradient: const LinearGradient(
                   begin: Alignment.bottomLeft,

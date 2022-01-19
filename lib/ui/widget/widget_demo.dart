@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:humilylab_talk/ui/widget/default_button.dart';
 import 'package:humilylab_talk/ui/widget/round_button.dart';
+import 'package:humilylab_talk/ui/widget/thermometer.dart';
 
 class WidgetDemo extends StatelessWidget {
   const WidgetDemo({
@@ -13,6 +14,12 @@ class WidgetDemo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Thermometer(
+              isVertical: false,
+              thickness: 30,
+              length: 140,
+              score: 36.5,
+              hasShadow: true),
           DefaultButton(
               text: 'dkssud',
               activated: true,
