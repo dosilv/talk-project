@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
+import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
+import 'package:humilylab_talk/ui/widget/custom_timer.dart';
 import 'package:humilylab_talk/ui/widget/round_button.dart';
 
 // class Home extends StatelessWidget {
@@ -25,14 +27,7 @@ class _HomeState extends State<Home> {
   }
 
   void showModal() {
-    Get.dialog(
-        CenterModal(
-          message: '센터 모달 테스트 센터 모달 테스트 중',
-          confirmText: '차단하기',
-          cancelText: '취소',
-          onConfirm: () {},
-        ),
-        barrierDismissible: false);
+    Get.dialog(CustomDatePicker(), barrierDismissible: false);
   }
 
   @override

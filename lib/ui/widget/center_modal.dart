@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:humilylab_talk/theme/color.dart';
+import 'package:get/route_manager.dart';
+import 'package:humilylab_talk/ui/widget/default_button.dart';
 
 class CenterModal extends StatelessWidget {
   final String message;
-  final Widget? contents;
   final String confirmText;
   final VoidCallback onConfirm;
+  final Widget? contents;
   final String? cancelText;
-  final VoidCallback? onCancel;
 
   const CenterModal(
       {Key? key,
@@ -15,8 +15,7 @@ class CenterModal extends StatelessWidget {
       required this.confirmText,
       required this.onConfirm,
       this.contents,
-      this.cancelText,
-      this.onCancel})
+      this.cancelText})
       : super(key: key);
 
   @override
@@ -34,25 +33,24 @@ class CenterModal extends StatelessWidget {
                     Text(message, style: Theme.of(context).textTheme.bodyText1),
               ),
               contents ?? Container(),
-              cancelText == null
-                  ? Expanded(
-                      child: Container(
-                          color: PRIMARY, height: 56, child: Text(confirmText)))
-                  : Row(
-                      children: [
-                        Expanded(
-                            child: Container(
-                                color: LIGHT_GRAY,
-                                height: 56,
-                                child: Text(cancelText!))),
+              Row(
+                children: cancelText == null
+                    ? [
+                        DefalutButton(
+                            text: confirmText, disabled: false, onClick: () {})
+                      ]
+                    : [
+                        DefalutButton(
+                            text: cancelText!,
+                            disabled: true,
+                            onClick: () {
+                              Get.back();
+                            }),
                         const SizedBox(width: 10),
-                        Expanded(
-                            child: Container(
-                                color: PRIMARY,
-                                height: 56,
-                                child: Text(confirmText)))
+                        DefalutButton(
+                            text: confirmText, disabled: false, onClick: () {}),
                       ],
-                    )
+              )
             ],
           )),
     );
