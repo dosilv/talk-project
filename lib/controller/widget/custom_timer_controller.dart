@@ -1,14 +1,14 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:humilylab_talk/ui/widget/center_modal.dart';
 
 class CustomTimerController extends GetxController {
-  RxInt min;
-  // final RxInt min = 30.obs;
+  final RxInt min;
   final RxInt sec = 0.obs;
 
-  CustomTimerController(this.min);
+  CustomTimerController({Key? key, required this.min});
 
   late Timer timer;
 
