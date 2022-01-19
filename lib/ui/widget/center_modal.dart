@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-// import 'package:humilylab_talk/ui/widget/default_button.dart';
+import 'package:humilylab_talk/ui/widget/default_button.dart';
 
 class CenterModal extends StatelessWidget {
   final String message;
@@ -33,24 +33,24 @@ class CenterModal extends StatelessWidget {
                     Text(message, style: Theme.of(context).textTheme.bodyText1),
               ),
               contents ?? Container(),
-              // Row(
-              //   children: cancelText == null
-              //       ? [
-              //           DefalutButton(
-              //               text: confirmText, disabled: false, onTap: () {})
-              //         ]
-              //       : [
-              //           DefalutButton(
-              //               text: cancelText!,
-              //               disabled: true,
-              //               onTap: () {
-              //                 Get.back();
-              //               }),
-              //           const SizedBox(width: 10),
-              //           DefalutButton(
-              //               text: confirmText, disabled: false, onTap: () {}),
-              //         ],
-              // )
+              Row(
+                children: cancelText == null
+                    ? [
+                        DefaultButton(
+                            text: confirmText, activated: false, onTap: () {})
+                      ]
+                    : [
+                        DefaultButton(
+                            text: cancelText!,
+                            activated: true,
+                            onTap: () {
+                              Get.back();
+                            }),
+                        const SizedBox(width: 10),
+                        DefaultButton(
+                            text: confirmText, activated: false, onTap: () {}),
+                      ],
+              )
             ],
           )),
     );

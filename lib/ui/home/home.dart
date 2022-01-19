@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/controller/widget/custom_date_picker_controller.dart';
@@ -9,9 +10,12 @@ import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
 import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
 import 'package:humilylab_talk/ui/widget/custom_timer.dart';
+=======
+import 'package:get/route_manager.dart';
+import 'package:humilylab_talk/ui/widget/custom_date_picker.dart';
+import 'package:humilylab_talk/ui/widget/widget_demo.dart';
+>>>>>>> d17ea3275732fc8f3aa7ef2a607fe1347fc2e66b
 
-// class Home extends StatelessWidget {
-//   const Home({Key? key}) : super(key: key);
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -29,11 +33,16 @@ class _HomeState extends State<Home> {
     });
   }
 
+<<<<<<< HEAD
   void showDatePicker() async {
     final date = await Get.put(CustomDatePickerController()).showDatePicker();
     setState(() {
       birthDate = '${date[0]} / ${date[1]} / ${date[2]}';
     });
+=======
+  void showModal() {
+    Get.dialog(const CustomDatePicker(), barrierDismissible: false);
+>>>>>>> d17ea3275732fc8f3aa7ef2a607fe1347fc2e66b
   }
 
   void showActionSheet() {
@@ -55,6 +64,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,6 +92,9 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+=======
+      body: WidgetDemo(),
+>>>>>>> d17ea3275732fc8f3aa7ef2a607fe1347fc2e66b
     );
   }
 }
