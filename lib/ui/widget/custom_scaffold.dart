@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:humilylab_talk/theme/color.dart';
 import 'package:humilylab_talk/ui/widget/bottom_nav.dart';
@@ -10,17 +9,15 @@ class CustomScaffold extends StatelessWidget {
   final Color bgColor;
   final double horizontalPadding;
   final double verticalPadding;
-  final ScrollController? scrollCtrl;
-  CustomScaffold(
-      {Key? key,
-      required this.body,
-      this.appBar,
-      this.bottomNavIdx,
-      this.bgColor = MAIN_BG,
-      this.horizontalPadding = 24,
-      this.verticalPadding = 20,
-      this.scrollCtrl})
-      : super(key: key);
+  CustomScaffold({
+    Key? key,
+    required this.body,
+    this.appBar,
+    this.bottomNavIdx,
+    this.bgColor = MAIN_BG,
+    this.horizontalPadding = 24,
+    this.verticalPadding = 20,
+  }) : super(key: key);
 
   var currentFocus;
 
@@ -44,7 +41,6 @@ class CustomScaffold extends StatelessWidget {
         bottomNavigationBar:
             bottomNavIdx != null ? BottomNav(curIdx: bottomNavIdx!) : null,
         body: SingleChildScrollView(
-            controller: scrollCtrl,
             child: ConstrainedBox(
                 constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height -
