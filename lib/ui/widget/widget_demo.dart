@@ -19,7 +19,7 @@ class WidgetDemo extends StatelessWidget {
         appBar: MainAppBar(
           appBar: AppBar(),
         ),
-        body: const MyStatelessWidget());
+        body: Column(children: [InterestGroup()]));
   }
 }
 
@@ -46,26 +46,26 @@ void showModal(context) {
     BottomModal(
       title: '관심사 선택하기',
       btnText: '확인',
-      contents: Column(children: [
-        const SizedBox(
-          height: 8,
-        ),
-        Text(
-          '최대 5개까지 선택할 수 있습니다.',
-          style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: DEEP_GRAY,
-              ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        const Expanded(
-          child: Padding(
+      contents: Expanded(
+        child: Column(children: [
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            '최대 5개까지 선택할 수 있습니다.',
+            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                  color: DEEP_GRAY,
+                ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: InterestGroup(),
           ),
-        ),
-      ]),
+        ]),
+      ),
     ),
     isScrollControlled: true,
   );
