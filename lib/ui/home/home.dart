@@ -4,11 +4,13 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/controller/widget/custom_date_picker_controller.dart';
 import 'package:humilylab_talk/ui/widget/action_modal.dart';
+import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
 import 'package:humilylab_talk/ui/widget/custom_checkbox.dart';
 import 'package:humilylab_talk/ui/widget/custom_scaffold.dart';
 import 'package:humilylab_talk/ui/widget/default_button.dart';
 import 'package:humilylab_talk/ui/widget/round_button.dart';
+import 'package:humilylab_talk/ui/widget/thermometer.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -67,6 +69,12 @@ class _HomeState extends State<Home> {
               activatedIcon: '🔊',
               onTap: () {
                 switchState(state1);
+                Get.dialog(CenterModal(
+                  message: 'message',
+                  confirmText: '확인',
+                  onConfirm: () {},
+                  // cancelText: '취소',
+                ));
               },
             ),
             CircularButton(
@@ -80,6 +88,7 @@ class _HomeState extends State<Home> {
               onTap: showActionSheet,
             ),
             Text(birthDate),
+
             DefaultButton(activated: true, onTap: () {}, text: 'text'),
             RoundButton(activated: false, onTap: () {}, text: 'text'),
             CustomCheckbox(
@@ -91,6 +100,8 @@ class _HomeState extends State<Home> {
                 });
               },
             ),
+            Thermometer(
+                thickness: 20, length: 100, score: 36.5, hasShadow: true)
           ],
         ),
       ),

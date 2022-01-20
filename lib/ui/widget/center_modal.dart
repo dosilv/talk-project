@@ -33,24 +33,27 @@ class CenterModal extends StatelessWidget {
                     Text(message, style: Theme.of(context).textTheme.bodyText1),
               ),
               contents ?? Container(),
-              Row(
-                children: cancelText == null
-                    ? [
-                        DefaultButton(
-                            text: confirmText, activated: false, onTap: () {})
-                      ]
-                    : [
-                        DefaultButton(
-                            text: cancelText!,
-                            activated: true,
-                            onTap: () {
-                              Get.back();
-                            }),
+              cancelText == null
+                  ? DefaultButton(
+                      text: confirmText, activated: true, onTap: () {})
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: DefaultButton(
+                              text: cancelText!,
+                              activated: false,
+                              onTap: () {
+                                Get.back();
+                              }),
+                        ),
                         const SizedBox(width: 10),
-                        DefaultButton(
-                            text: confirmText, activated: false, onTap: () {}),
+                        Expanded(
+                          child: DefaultButton(
+                              text: confirmText, activated: true, onTap: () {}),
+                        ),
                       ],
-              )
+                    )
             ],
           )),
     );
