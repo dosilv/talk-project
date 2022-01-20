@@ -4,9 +4,9 @@ import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/routes/routes.dart';
 import 'package:humilylab_talk/theme/color.dart';
 
-class CustomBottomNav extends StatelessWidget {
+class BottomNav extends StatelessWidget {
   final int curIdx;
-  const CustomBottomNav({Key? key, required this.curIdx}) : super(key: key);
+  const BottomNav({Key? key, required this.curIdx}) : super(key: key);
 
   static centerButton(int curIdx) => FloatingActionButton(
         backgroundColor: Colors.white,
@@ -26,7 +26,7 @@ class CustomBottomNav extends StatelessWidget {
 //icon -> svg로 추후 수정
   Widget bottomNavButton(
           {required int idx,
-          required IconData icon,
+          IconData? icon,
           required String label,
           required String onTapTo}) =>
       GestureDetector(
@@ -37,7 +37,11 @@ class CustomBottomNav extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Icon(icon, color: curIdx == idx ? PRIMARY : DEEP_GRAY),
+              Icon(
+                icon,
+                color: curIdx == idx ? PRIMARY : DEEP_GRAY,
+                size: 28,
+              ),
               Text(
                 label,
                 style: TextStyle(
@@ -63,10 +67,7 @@ class CustomBottomNav extends StatelessWidget {
                   label: '홈',
                   onTapTo: Routes.INITIAL),
               bottomNavButton(
-                  idx: 1,
-                  icon: CupertinoIcons.add,
-                  label: '그룹대화',
-                  onTapTo: Routes.GROUP_TALK_LIST),
+                  idx: 1, label: '그룹대화', onTapTo: Routes.GROUP_TALK_LIST),
               bottomNavButton(
                   idx: 2,
                   icon: Icons.person_outline,
