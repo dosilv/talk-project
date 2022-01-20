@@ -1,0 +1,25 @@
+import 'package:humilylab_talk/theme/color.dart';
+
+List<Map> INTEREST_LIST = [
+  {'id': 0, 'title': '자유', 'icon': '😆', 'color': ICON_ORANGE, 'gender': 0},
+  {'id': 1, 'title': '고민상담', 'icon': '🤔', 'color': ICON_ORANGE, 'gender': 0},
+  {'id': 2, 'title': '직장', 'icon': '💼', 'color': ICON_ORANGE, 'gender': 0},
+  {'id': 3, 'title': '연애/결혼', 'icon': '💍', 'color': ICON_ORANGE, 'gender': 0},
+  {'id': 4, 'title': '야구', 'icon': '⚾️ ', 'color': ICON_GREEN, 'gender': 1},
+  {'id': 5, 'title': '축구', 'icon': '⚽️', 'color': ICON_GREEN, 'gender': 1},
+  {'id': 6, 'title': '등산', 'icon': '⛰', 'color': ICON_GREEN, 'gender': 0},
+  {'id': 7, 'title': '캠핑', 'icon': '🏕', 'color': ICON_GREEN, 'gender': 0},
+  {'id': 8, 'title': '골프', 'icon': '⛳️', 'color': ICON_GREEN, 'gender': 0},
+  {'id': 9, 'title': '영화', 'icon': '🍿', 'color': ICON_PURPLE, 'gender': 0},
+  {'id': 10, 'title': '드라마', 'icon': '🎬', 'color': ICON_PURPLE, 'gender': 2},
+  {'id': 11, 'title': '트로트', 'icon': '🎤', 'color': ICON_PURPLE, 'gender': 0},
+  {'id': 12, 'title': '팬심', 'icon': '👩‍🎤', 'color': ICON_PURPLE, 'gender': 2},
+  {'id': 13, 'title': '건강', 'icon': '💪', 'color': ICON_YELLOW, 'gender': 0},
+  {'id': 14, 'title': '육아', 'icon': '🍼', 'color': ICON_YELLOW, 'gender': 2},
+  {'id': 15, 'title': '다이어트', 'icon': '🥗', 'color': ICON_YELLOW, 'gender': 2},
+  {'id': 16, 'title': '맛집/술', 'icon': '🍽', 'color': ICON_YELLOW, 'gender': 0},
+  {'id': 17, 'title': '쇼핑', 'icon': '🛍', 'color': ICON_RED, 'gender': 2},
+  {'id': 18, 'title': '뷰티', 'icon': '💄', 'color': ICON_RED, 'gender': 2},
+  {'id': 19, 'title': '주식/투자', 'icon': '📈 ', 'color': ICON_BLUE, 'gender': 1},
+  {'id': 20, 'title': '책', 'icon': '📚', 'color': ICON_BLUE, 'gender': 0},
+];
