@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/theme/color.dart';
-import 'package:humilylab_talk/ui/signup/interest_group.dart';
+import 'package:humilylab_talk/ui/widget/interest_group.dart';
 import 'package:humilylab_talk/ui/widget/bottom_modal.dart';
 import 'package:humilylab_talk/ui/widget/main_app_bar.dart';
 // import 'package:get/get.dart';
@@ -46,7 +46,7 @@ void showModal(context) {
     BottomModal(
       title: '관심사 선택하기',
       btnText: '확인',
-      contents: [
+      contents: Column(children: [
         const SizedBox(
           height: 8,
         ),
@@ -65,7 +65,7 @@ void showModal(context) {
             child: InterestGroup(),
           ),
         ),
-      ],
+      ]),
     ),
     isScrollControlled: true,
   );

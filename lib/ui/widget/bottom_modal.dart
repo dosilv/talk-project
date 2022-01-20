@@ -5,15 +5,17 @@ import 'package:humilylab_talk/ui/widget/default_button.dart';
 
 class BottomModal extends StatelessWidget {
   final String title;
+  final Widget contents;
   final String btnText;
-  final List<Widget> contents;
+  final VoidCallback? btnCallback;
 
-  const BottomModal({
-    Key? key,
-    required this.title,
-    required this.btnText,
-    required this.contents,
-  }) : super(key: key);
+  const BottomModal(
+      {Key? key,
+      required this.title,
+      required this.contents,
+      required this.btnText,
+      this.btnCallback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +38,17 @@ class BottomModal extends StatelessWidget {
                   .bodyText1
                   ?.copyWith(fontWeight: FontWeight.w800),
             ),
-            ...contents,
+            contents,
             DefaultButton(
               activated: true,
               borderRadius: 0,
               botttomPadding: 24,
-              onTap: () => Get.back(),
+              onTap: () {
+                if (btnCallback != null) {
+                  btnCallback!();
+                }
+                Get.back();
+              },
               text: btnText,
             ),
           ],

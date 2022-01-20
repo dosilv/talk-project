@@ -4,6 +4,7 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/controller/widget/custom_date_picker_controller.dart';
 import 'package:humilylab_talk/ui/widget/action_modal.dart';
+import 'package:humilylab_talk/ui/widget/bottom_modal.dart';
 import 'package:humilylab_talk/ui/widget/box_input.dart';
 import 'package:humilylab_talk/ui/widget/center_modal.dart';
 import 'package:humilylab_talk/ui/widget/circular_button.dart';
@@ -113,7 +114,18 @@ class _HomeState extends State<Home> {
             onTap: showActionSheet,
           ),
           Text(birthDate),
-          DefaultButton(activated: true, onTap: () {}, text: 'text'),
+          DefaultButton(
+              activated: true,
+              onTap: () {
+                Get.bottomSheet(BottomModal(
+                    title: 'title',
+                    btnText: 'btnText',
+                    btnCallback: () {
+                      print("HELLO!");
+                    },
+                    contents: Text("data")));
+              },
+              text: 'text'),
           RoundButton(activated: false, onTap: () {}, text: 'text'),
           CustomCheckbox(
             checked: checked,

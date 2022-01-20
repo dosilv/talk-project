@@ -3,9 +3,9 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
 
 class InterestGroupController extends GetxController {
-  List<int> selectedInterestList = [];
+  final List<int> selectedInterestList;
 
-  InterestGroupController({Key? key});
+  InterestGroupController({Key? key, this.selectedInterestList = const []});
 
   void showAlertMsg() {
     Get.showSnackbar(const GetSnackBar(

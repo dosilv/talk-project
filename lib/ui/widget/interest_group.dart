@@ -5,15 +5,18 @@ import 'package:humilylab_talk/theme/consts.dart';
 import 'package:humilylab_talk/ui/widget/round_button.dart';
 
 class InterestGroup extends GetView<InterestGroupController> {
+  final List<int> userInterestList;
   const InterestGroup({
     Key? key,
+    this.userInterestList = const [],
   }) : super(key: key);
 
   // TODO : 성별에 따라 정렬 다르게 주기
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(InterestGroupController());
+    final controller = Get.put(
+        InterestGroupController(selectedInterestList: userInterestList));
 
     return GridView.builder(
       padding: const EdgeInsets.only(bottom: 20),
