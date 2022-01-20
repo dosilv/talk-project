@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:humilylab_talk/theme/color.dart';
-import 'package:humilylab_talk/theme/consts.dart';
 import 'package:humilylab_talk/ui/signup/interest_group.dart';
 import 'package:humilylab_talk/ui/widget/bottom_modal.dart';
-import 'package:humilylab_talk/ui/widget/default_button.dart';
 import 'package:humilylab_talk/ui/widget/main_app_bar.dart';
-import 'package:humilylab_talk/ui/widget/round_button.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class WidgetDemo extends StatelessWidget {
   WidgetDemo({
