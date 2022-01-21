@@ -23,9 +23,9 @@ ThemeData themeData = ThemeData(
       color: BLACK,
     ),
     bodyText1: TextStyle(
-      fontSize: 18,
+      fontSize: 16,
       fontFamily: 'Noto Sans KR',
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
       color: BLACK,
       // letterSpacing: -0.2,
     ),
