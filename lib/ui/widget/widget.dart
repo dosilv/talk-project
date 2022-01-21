@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GroupTalkList extends StatelessWidget {
-  const GroupTalkList({Key? key}) : super(key: key);
+class name extends StatelessWidget {
+  const name({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
