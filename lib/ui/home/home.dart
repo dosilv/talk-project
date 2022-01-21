@@ -26,42 +26,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool state1 = true;
-  bool state2 = false;
-
-  void switchState(bool state) {
-    setState(() {
-      state1 = !state1;
-    });
-  }
-
-  void showDatePicker() async {
-    final date = await Get.put(CustomDatePickerController()).showDatePicker();
-    setState(() {
-      birthDate = '${date[0]} / ${date[1]} / ${date[2]}';
-    });
-  }
-
-  bool checked = false;
-
-  void showActionSheet() {
-    Get.bottomSheet(ActionModal(actionLabels: [
-      '차단하기',
-      '신고하기'
-    ], actions: [
-      () {
-        print('차단하기');
-      },
-      () {
-        print('신고하기');
-      },
-    ]));
-  }
-
-  String birthDate = 'yyyy / mm / dd';
-
   @override
   Widget build(BuildContext context) {
-    return WidgetDemo();
+    return CustomScaffold(
+        appBar: MainAppBar(appBar: AppBar()),
+        bottomNavIdx: 1,
+        bgColor: Colors.yellow,
+        body: Container(
+          width: double.maxFinite,
+          color: Colors.purple,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'hi',
+                style: TextStyle(fontSize: 82),
+              ),
+              Text(
+                'hello',
+                style: TextStyle(fontSize: 82),
+              ),
+              Text(
+                'hi',
+                style: TextStyle(fontSize: 82),
+              ),
+              Text(
+                'hello',
+                style: TextStyle(fontSize: 82),
+              ),
+            ],
+          ),
+        ));
   }
 }

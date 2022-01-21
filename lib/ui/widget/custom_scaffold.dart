@@ -8,7 +8,7 @@ class CustomScaffold extends StatelessWidget {
   final int? bottomNavIdx;
   final Color bgColor;
   final double horizontalPadding;
-  final double verticalPadding;
+  final double topPadding;
   CustomScaffold({
     Key? key,
     required this.body,
@@ -16,7 +16,7 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNavIdx,
     this.bgColor = MAIN_BG,
     this.horizontalPadding = 24,
-    this.verticalPadding = 20,
+    this.topPadding = 16,
   }) : super(key: key);
 
   var currentFocus;
@@ -44,19 +44,15 @@ class CustomScaffold extends StatelessWidget {
             child: ConstrainedBox(
                 constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top -
-                        (appBar?.preferredSize.height ?? 0) -
-                        40),
+                        (appBar == null
+                            ? 0
+                            : (appBar!.preferredSize.height +
+                                MediaQuery.of(context).padding.top)) -
+                        (bottomNavIdx != null ? 90 : 0)),
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                        horizontalPadding,
-                        verticalPadding +
-                            (appBar == null
-                                ? MediaQuery.of(context).padding.top
-                                : 0),
-                        horizontalPadding,
-                        verticalPadding),
-                    child: body))),
+                        horizontalPadding, topPadding, horizontalPadding, 0),
+                    child: SafeArea(bottom: false, child: body)))),
       ),
     );
   }
